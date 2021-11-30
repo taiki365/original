@@ -91,7 +91,7 @@
 | inning                     | integer | null: false |
 | damage_batting_average     | float   | null: false |
 | damage_base_percentage     | float   | null: false |
-| QS                         | integer | null: false |
+| qs                         | integer | null: false |
 | damage_slugging_percentage | float   | null: false |
 
 ### Association
