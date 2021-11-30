@@ -55,6 +55,7 @@
         </table>
         <%=link_to '編集', edit_batter_path, method: :get %>
         <%=link_to '削除', "/batters/#{@batter.id}", method: :delete %>
+        <%=link_to 'TOP', root_path, class:"back-btn" %>
       </div>
     </main>
 
