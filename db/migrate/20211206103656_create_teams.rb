@@ -6,8 +6,7 @@ class CreateTeams < ActiveRecord::Migration[6.0]
       t.integer :team_win,             null: false
       t.integer :team_lose,            null: false
       t.integer :draw,                 null: false
-      t.float   :win_rate,             null: false
-      t.float   :win_rate_difference,  null: false
+      t.float   :game_difference,      null: false
       t.float   :team_defense,         null: false
       t.float   :team_batting_average, null: false
       t.integer :team_homerun,         null: false

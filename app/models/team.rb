@@ -7,8 +7,7 @@ class Team < ApplicationRecord
   validates :team_win,             presence: true
   validates :team_lose,            presence: true
   validates :draw,                 presence: true
-  validates :win_rate,             presence: true
-  validates :win_rate_difference,  presence: true
+  validates :game_difference,      presence: true
   validates :team_defense,         presence: true
   validates :team_batting_average, presence: true
   validates :team_homerun,         presence: true
@@ -16,5 +15,13 @@ class Team < ApplicationRecord
   validates :team_runs,            presence: true
   validates :tema_conceded,        presence: true
   
-
+   def win_rate
+     @total = team_win.to_f / (team_win + team_lose)
+     @total.round(3)
+   end
+  
+   def runk
+    @runk = 0
+    @runk += 1
+   end
 end

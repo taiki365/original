@@ -30,7 +30,7 @@
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
-            <tr> 
+            <tr>
               <th>チーム名</th>
               <th>試合数</th>
               <th>勝利</th>
@@ -46,25 +46,23 @@
               <th>チーム失点</th>
             </tr>
           </thead>
+
           <% @team.each do |t| %>
           <tbody>
-       
             <tr>
               <td><%= t.team_name.name %></td>
               <td><%= t.game_number %></td>
               <td><%= t.team_win %></td>
               <td><%= t.team_lose %></td>
               <td><%= t.draw %></td>
-              <td><%= t.win_rate %></td>
-              <%# <td><%= t. </td> %>
+              <td><%= t.win_rate %></td> 
+              <td><%= t.game_difference %></td> 
               <td><%= t.team_defense %></td>
               <td><%= t.team_batting_average %></td>
               <td><%= t.team_homerun %></td>
               <td><%= t.team_steal %></td>
               <td><%= t.team_runs %></td>
               <td><%= t.tema_conceded %></td>
-              
-              
               <td><%=link_to '詳細', "/teams/#{t.id}" %></td>
             </tr>
           </tbody>
