@@ -40,17 +40,13 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | game_number | integer    | null: false                    |
-| team_name   | string     | null: false                    |
+| team_name_id | integer     | null: false                    |
 | draw        | integer    | null: false                    |
-| batter      | references | null: false, foreign_key: true |
-| pitcher     | references | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :game
-- has_many :batters
-- has_many :pitchers
 
 ## batters テーブル
 

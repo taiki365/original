@@ -1,6 +1,6 @@
 class PitchersController < ApplicationController
   before_action :set_pitcher, only: [:edit, :update, :show, :destroy]
-
+  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy]
   def index
     @pitcher = Pitcher.all
   end
@@ -45,5 +45,11 @@ class PitchersController < ApplicationController
   
   def set_pitcher
     @pitcher = Pitcher.find(params[:id])
+  end
+
+  def admin_check
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 end

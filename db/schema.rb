@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_100702) do
+ActiveRecord::Schema.define(version: 2021_12_04_111620) do
 
   create_table "batters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "batter_name", null: false
@@ -50,6 +50,24 @@ ActiveRecord::Schema.define(version: 2021_11_29_100702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "game_number", null: false
+    t.integer "team_name_id", null: false
+    t.integer "team_win", null: false
+    t.integer "team_lose", null: false
+    t.integer "draw", null: false
+    t.float "win_rate", null: false
+    t.float "win_rate_difference", null: false
+    t.float "team_defense", null: false
+    t.float "team_batting_average", null: false
+    t.integer "team_homerun", null: false
+    t.integer "team_steal", null: false
+    t.integer "team_runs", null: false
+    t.integer "tema_conceded", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_100702) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,8 +1,10 @@
 class BattersController < ApplicationController
   before_action :set_batter, only: [:edit, :update, :show, :destroy]
+  before_action :admin_check, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @batter = Batter.all
+    
   end
   
   def new
@@ -11,6 +13,7 @@ class BattersController < ApplicationController
 
   def create
     @batter = Batter.new(batter_params)
+    
     if @batter.save
       redirect_to action: :index
     else
@@ -45,5 +48,11 @@ class BattersController < ApplicationController
 
   def set_batter
     @batter = Batter.find(params[:id])
+  end
+
+  def admin_check
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 end
