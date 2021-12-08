@@ -1,80 +1,35 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <p class="h5 my-0 me-md-auto fw-normal">セイバーメトリクス's</p>
-   <% if user_signed_in? %>
-            <div class="nav__right">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
-            </div>
-          <% else %>
-            <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
-            </div>
+<body>
+  <main>
+    <div class="content">
+      <div class="top-message">
+          <div class="display-1">セイバーメトリクスとは</div>
+          <div class="explanation">野球を数字でデータ分析し、統計学的根拠を加えて選手の評価・戦略などを考える手法である</div>
+      </div>
+
+      <div class="player-box">
+        <div class="box-1">
+          <%= link_to batters_path do %>
+            <div class="display-2">打者個人成績</div>
+            <div class="square-2"></div>
           <% end %>
-</header>
+        </div>
+        <div class="box-2"> 
+          <%= link_to pitchers_path do %>
+            <div class="display-2">投手個人成績</div>
+            <div class="square-2"></div>
+          <% end %>
+        </div>
+      </div> 
 
-<main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">セイバー</h1>
-      <h3>セイバーメトリクスとは野球を数字でデータ分析し、統計学的根拠を加えて選手の評価・戦略などを考える手法である</h3>
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-  <%= link_to batters_path do %>
-    <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">打者個人成績</h2>
+      <div class="box-3"> 
+        <%= link_to teams_path do %> 
+          <h2 class="display-3">チーム成績</h2>
+          <div class="square-3"></div>
+        <% end %>
       </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+          
     </div>
-  <% end %>
-
-  <%= link_to pitchers_path do %>
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">投手個人成績</h2>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
-  <% end %>
-
-  
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <%= link_to teams_path do %> 
-    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">チーム成績</h2>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <% end %>
-  
-    <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">試合勝敗予想</h2>
-      </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
-</main>
-
-<footer class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-      <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
-    </div>
-  </div>
-</footer>
+  </main>
+</body>
 
 
- 
-
-      
-  </body>
-</html>

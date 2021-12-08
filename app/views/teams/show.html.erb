@@ -1,65 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
-
-  </head>
-  <body>
-    
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  
-</header>
-
-
-  
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">チーム成績</h1>
-      </div>
-  
-      <h2>Section title</h2>
-      <div class="table-responsive"> 
-          <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-          <tbody>
-            <tr>
-              <td><%= @team.team_name.name %></td>
-              <td><%= @team.game_number %></td>
-              <td><%= @team.team_win %></td>
-              <td><%= @team.team_lose %></td>
-              <td><%= @team.draw %></td>
-              <td><%= @team.win_rate %></td>
-              <%# <td><%= t. </td>%>
-              <td><%= @team.team_defense %></td>
-              <td><%= @team.team_batting_average %></td>
-              <td><%= @team.team_homerun %></td>
-              <td><%= @team.team_steal %></td>
-              <td><%= @team.team_runs %></td>
-              <td><%= @team.tema_conceded %></td>
-            </tr>
-          </tbody>
-            </tr>
+<body>
+  <main>
+    <div class="content">
+      <div class="table-name">チーム成績</div>
+      <table>
+        <thead class="table-item">
+          <tr>
+            <th scope="col">チーム名</th>
+            <th scope="col">試合数</th>
+            <th scope="col">勝利</th>
+            <th scope="col">敗北</th>
+            <th scope="col">引き分け</th>
+            <th scope="col">勝率</th>
+            <th scope="col">勝率差</th>
+            <th scope="col">チーム防御率</th>
+            <th scope="col">チーム打率</th>
+            <th scope="col">チーム本塁打</th>
+            <th scope="col">チーム盗塁</th>
+            <th scope="col">チーム得点</th>
+            <th scope="col">チーム失点</th>
+            <th scope="col"></th>
+          </tr>
         </thead>
-        </table>
-      <% if user_signed_in? && current_user.admin? %>
-        <%=link_to '編集', edit_team_path, method: :get %>
-        <%=link_to '削除', "/teams/#{@team.id}", method: :delete %>
-        <%=link_to 'TOP', root_path, class:"back-btn" %>
-      <% end %>
-      </div>
-    </main>
+        
+        <tbody>    
+          <tr>
+            <td scope="row"><%= @team.team_name.name %></td>
+            <td><%= @team.game_number %></td>
+            <td><%= @team.team_win %></td>
+            <td><%= @team.team_lose %></td>
+            <td><%= @team.draw %></td>
+            <td><%= @team.win_rate %></td>
+            <td><%= @team.game_difference %></td>
+            <td><%= @team.team_defense %></td>
+            <td><%= @team.team_batting_average %></td>
+            <td><%= @team.team_homerun %></td>
+            <td><%= @team.team_steal %></td>
+            <td><%= @team.team_runs %></td>
+            <td><%= @team.tema_conceded %></td>
+          </tr>
+        </tbody>
+      </table>
 
-
-  </body>
-</html>
+        <% if user_signed_in? && current_user.admin? %>
+          <%=link_to '編集', edit_team_path, method: :get, class:"btn btn--gray" %>
+          <%=link_to '削除', "/teams/#{@team.id}", method: :delete, class:"btn btn--red" %>
+          <%=link_to 'TOP', root_path, class:"btn btn--green" %>
+        <% end %>
+    </div>
+  </main>
+</body>

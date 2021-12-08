@@ -19,9 +19,4 @@ class Team < ApplicationRecord
      @total = team_win.to_f / (team_win + team_lose)
      @total.round(3)
    end
-  
-   def runk
-    @runk = 0
-    @runk += 1
-   end
 end

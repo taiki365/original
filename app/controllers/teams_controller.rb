@@ -12,7 +12,6 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    # binding.pry
     if @team.save
       redirect_to action: :index
     else
