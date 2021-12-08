@@ -1,39 +1,40 @@
+<body>
+  <main>
 
-    <main class="">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">投手成績</h1>
+    <div class="content">
+      <div class="table-name">
+        投手成績
       </div>
+      <table>
+        <thead class="table-item">
+          <tr>
+            <th scope="col">投手名</th>
+            <th scope="col">勝利</th>
+            <th scope="col">敗北</th>
+            <th scope="col">被安打</th>
+            <th scope="col">防御率</th>
+            <th scope="col">失点</th>
+            <th scope="col">被本塁打</th>
+            <th scope="col">与四球</th>
+            <th scope="col">与死球</th>
+            <th scope="col">投球回</th>
+            <th scope="col">被打率</th>
+            <th scope="col">被出塁率</th>
+            <th scope="col">qs</th>
+            <th scope="col">被長打率</th>
+            <th scope="col">被OPS</th>
+            <th scope="col">LOB%</th>
+            <th scope="col">BB/9</th>
+            <th scope="col">HR/9</th>
+            <th scope="col">WHIP</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
 
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>選手名</th>
-              <th>勝利</th>
-              <th>敗北</th>
-              <th>被安打</th>
-              <th>防御率</th>
-              <th>失点</th>
-              <th>被本塁打</th>
-              <th>与四球</th>
-              <th>与死球</th>
-              <th>投球回</th>
-              <th>被打率</th>
-              <th>被出塁率</th>
-              <th>qs</th>
-              <th>被長打率</th>
-              <th>被OPS</th>
-              <th>LOB%</th>
-              <th>BB/9</th>
-              <th>HR/9</th>
-              <th>WHIP</th>
-            </tr>
-          </thead>
-          <% @pitcher.each do |p| %>
+        <% @pitcher.each do |p| %>
           <tbody>
-       
             <tr>
-              <td><%= p.pitcher_name %></td>
+              <td scope="row"><%= p.pitcher_name %></td>
               <td><%= p.win %></td>
               <td><%= p.lose %></td>
               <td><%= p.damage_hit %></td>
@@ -52,20 +53,16 @@
               <td><%= p.bb9 %></td>
               <td><%= p.hr9 %></td>
               <td><%= p.whip %></td>
-              <td><%=link_to '詳細', "/pitchers/#{p.id}" %></td>
+              <td><%=link_to '詳細', "/pitchers/#{p.id}", class:"btn btn--blue" %></td>
             </tr>
           </tbody>
-          <% end %>
-        </table>
-      </div>
-    <% if user_signed_in? && current_user.admin? %>
-      <%=link_to '新規データ入力', new_pitcher_path, class:"back-btn" %>
-      <%=link_to 'TOP', root_path, class:"back-btn" %>
-    <% end %>
-    </main>
-  </div>
-</div>
+        <% end %>
+      </table>
 
-
-  </body>
-</html>
+      <% if user_signed_in? && current_user.admin? %>
+        <div><%=link_to '新規データ入力', new_pitcher_path, class:"btn btn--yellow" %></div>
+      <% end %>
+    </div>
+    
+  </main>
+</body>

@@ -1,6 +1,6 @@
 class TeamName < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '---------' },
     { id: 2, name: '阪神タイガース' },
     { id: 3, name: '東京ヤクルトスワローズ' },
     { id: 4, name: '読売ジャイアンツ' },

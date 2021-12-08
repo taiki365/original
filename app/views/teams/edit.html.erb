@@ -1,29 +1,30 @@
 <body>
   <main>
     <div class="content">
-      <div class="table-name">チーム成績</div>
-          <%= form_with model:@team, local: true do |f| %>
-            <table>
-              <thead class="table-item">
-                <tr>
-                  <th class="new-item"><%= f.collection_select(:team_name_id, TeamName.all, :id, :name, {}, {class:"select-box", id:""}) %></th>
-                  <th><%= f.number_field :game_number, placeholder:"試合数" %></th>
-                  <th><%= f.number_field :team_win, placeholder:"勝利"%></th>
-                  <th><%= f.number_field :team_lose, placeholder:"敗北" %></th>
-                  <th><%= f.number_field :draw, placeholder:"引き分け" %></th>
-                  <th><%= f.number_field :game_difference, placeholder:"ゲーム差"%></th>
-                  <th><%= f.number_field :team_defense, step: "0.01", placeholder:"防御率" %></th>
-                  <th><%= f.number_field :team_batting_average, step: "0.01", placeholder:"打率" %></th>
-                  <th><%= f.number_field :team_homerun, placeholder:"本塁打" %></th>
-                  <th><%= f.number_field :team_steal, placeholder:"盗塁" %></th>
-                  <th><%= f.number_field :team_runs, placeholder:"得点" %></th>
-                  <th><%= f.number_field :tema_conceded, placeholder:"失点" %></th>
-                  <th><%= f.submit "登録する" ,class:"btn btn--skyblue" %></th>
-                </tr> 
-              </thead>
-            </table>
-          <% end %>
-        <a><%=link_to 'TOP', root_path, class:"btn btn--green" %></a>
+      <div class="table-name">
+        チーム成績
+      </div>
+        <%= form_with model:@team, local: true do |f| %>
+          <table>
+            <thead class="table-item">
+              <tr>
+                <th><%= f.collection_select(:team_name_id, TeamName.all, :id, :name, {}, {class:"select-box", id:""}) %></th>
+                <th><%= f.number_field :game_number, placeholder:"試合数" %></th>
+                <th><%= f.number_field :team_win, placeholder:"勝利"%></th>
+                <th><%= f.number_field :team_lose, placeholder:"敗北" %></th>
+                <th><%= f.number_field :draw, placeholder:"引き分け" %></th>
+                <th><%= f.number_field :game_difference, placeholder:"ゲーム差"%></th>
+                <th><%= f.number_field :team_defense, step: "0.01", placeholder:"防御率" %></th>
+                <th><%= f.number_field :team_batting_average, step: "0.01", placeholder:"打率" %></th>
+                <th><%= f.number_field :team_homerun, placeholder:"本塁打" %></th>
+                <th><%= f.number_field :team_steal, placeholder:"盗塁" %></th>
+                <th><%= f.number_field :team_runs, placeholder:"得点" %></th>
+                <th><%= f.number_field :tema_conceded, placeholder:"失点" %></th>
+                <th><%= f.submit "更新する" ,class:"btn btn--skyblue" %></th>
+              </tr> 
+            </thead>
+          </table>
+        <% end %>
     </div>
   </main>
 </body>

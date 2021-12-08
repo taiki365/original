@@ -1,38 +1,35 @@
 <body>
-    <main>
+  <main>
     <div class="content">
-      <div class="table-name">チーム成績</div>
-      <table>
-          
-      <h2>成績を入力してください</h2>
-      <div class="table-responsive"> 
-        <%= form_with model:@pitcher, local: true do |f| %>
-          <table class="table table-striped table-sm">
-        <thead class="table-item">
-            <tr>
-              <th><%= f.text_field :pitcher_name, placeholder:"選手名"%></th>
-              <th><%= f.number_field :win, placeholder:"勝利" %></th>
-              <th><%= f.number_field :lose, placeholder:"敗北" %></th>
-              <th><%= f.number_field :damage_hit, placeholder:"被安打" %></th>
-              <th><%= f.number_field :defense, step: "0.01", placeholder:"防御率" %></th>
-              <th><%= f.number_field :conceded, placeholder:"失点" %></th>
-              <th><%= f.number_field :damage_homerun, placeholder:"被本塁打" %></th>
-              <th><%= f.number_field :gave_walks, placeholder:"与四球" %></th>
-              <th><%= f.number_field :gave_dead_ball, placeholder:"与死球" %></th>
-              <th><%= f.number_field :inning, placeholder:"投球回" %></th>
-              <th><%= f.number_field :damage_batting_average, step: "0.001", placeholder:"被打率" %></th>
-              <th><%= f.number_field :damage_base_percentage, step: "0.001", placeholder:"被出塁率" %></th>
-              <th><%= f.number_field :qs, placeholder:"QS" %></th>
-              <th><%= f.number_field :damage_slugging_percentage, step: "0.001", placeholder:"被長打率" %></th>
-            </tr> 
-            <%= f.submit "登録する" ,class:"sell-btn" %>
-        </thead>
-        </table>
-        <% end %>
+      <div class="table-name">
+        投手成績
       </div>
-      <%=link_to 'TOP', root_path, class:"back-btn" %>
-    </main>
-
-
-  </body>
-</html>
+        <div class="instructions">
+          成績を入力してください
+        </div>
+          <%= form_with model:@pitcher, local: true do |f| %>
+            <table>
+              <thead class="table-item">
+                <tr>
+                  <th><%= f.text_field :pitcher_name, placeholder:"投手名"%></th>
+                  <th><%= f.number_field :win, placeholder:"勝利" %></th>
+                  <th><%= f.number_field :lose, placeholder:"敗北" %></th>
+                  <th><%= f.number_field :damage_hit, placeholder:"被安打" %></th>
+                  <th><%= f.number_field :defense, step: "0.01", placeholder:"防御率" %></th>
+                  <th><%= f.number_field :conceded, placeholder:"失点" %></th>
+                  <th><%= f.number_field :damage_homerun, placeholder:"被本塁打" %></th>
+                  <th><%= f.number_field :gave_walks, placeholder:"与四球" %></th>
+                  <th><%= f.number_field :gave_dead_ball, placeholder:"与死球" %></th>
+                  <th><%= f.number_field :inning, placeholder:"投球回" %></th>
+                  <th><%= f.number_field :damage_batting_average, step: "0.001", placeholder:"被打率" %></th>
+                  <th><%= f.number_field :damage_base_percentage, step: "0.001", placeholder:"被出塁率" %></th>
+                  <th><%= f.number_field :qs, placeholder:"QS" %></th>
+                  <th><%= f.number_field :damage_slugging_percentage, step: "0.001", placeholder:"被長打率" %></th>
+                  <th><%= f.submit "登録する" ,class:"btn btn--skyblue" %></th>
+                </tr>    
+              </thead>
+            </table>
+          <% end %>
+    </div>
+  </main>
+</body>

@@ -1,61 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
-
-  </head>
-  <body>
-    
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  
-</header>
-
-
-  
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">打者成績</h1>
+<body>
+  <main>
+    <div class="content">
+      <div class="table-name">
+        打者成績
       </div>
-  
-      <h2>Section title</h2>
-      <div class="table-responsive"> 
         <%= form_with model:@batter, local: true do |f| %>
-          <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-              <th><%= f.text_field :batter_name, id:"", placeholder:"選手名"%></th>
-              <th><%= f.number_field :bat,  id:"", placeholder:"打数" %></th>
-              <th><%= f.number_field :rbi,  id:"", placeholder:"打点" %></th>
-              <th><%= f.number_field :single,  id:"", placeholder:"単打" %></th>
-              <th><%= f.number_field :double,  id:"", placeholder:"二塁打" %></th>
-              <th><%= f.number_field :triple,  id:"", placeholder:"三塁打" %></th>
-              <th><%= f.number_field :homerun,  id:"", placeholder:"本塁打" %></th>
-              <th><%= f.number_field :walks,  id:"", placeholder:"四球" %></th>
-              <th><%= f.number_field :dead_ball,  id:"", placeholder:"死球" %></th>
-              <th><%= f.number_field :sacrifice_fly,  id:"", placeholder:"犠飛" %></th>
-              <th><%= f.number_field :strikeout,  id:"", placeholder:"三振" %></th>
-              <th><%= f.number_field :steal,  id:"", placeholder:"盗塁" %></th>
-              <th><%= f.number_field :steal_dead,  id:"", placeholder:"盗塁死" %></th>
-              <th><%= f.number_field :runs,  id:"", placeholder:"得点" %></th>
-            </tr> 
-            <%= f.submit "登録する" ,class:"sell-btn" %>
-        </thead>
-        </table>
+          <table>
+            <thead class="table-item">
+              <tr>
+                <th><%= f.text_field :batter_name, placeholder:"選手名"%></th>
+                <th><%= f.number_field :bat, placeholder:"打数" %></th>
+                <th><%= f.number_field :rbi, placeholder:"打点" %></th>
+                <th><%= f.number_field :single, placeholder:"単打" %></th>
+                <th><%= f.number_field :double, placeholder:"二塁打" %></th>
+                <th><%= f.number_field :triple, placeholder:"三塁打" %></th>
+                <th><%= f.number_field :homerun, placeholder:"本塁打" %></th>
+                <th><%= f.number_field :walks, placeholder:"四球" %></th>
+                <th><%= f.number_field :dead_ball, placeholder:"死球" %></th>
+                <th><%= f.number_field :sacrifice_fly, placeholder:"犠飛" %></th>
+                <th><%= f.number_field :strikeout, placeholder:"三振" %></th>
+                <th><%= f.number_field :steal, placeholder:"盗塁" %></th>
+                <th><%= f.number_field :steal_dead, placeholder:"盗塁死" %></th>
+                <th><%= f.number_field :runs, placeholder:"得点" %></th>
+                <th><%= f.submit "更新する" ,class:"btn btn--skyblue" %></th>
+              </tr> 
+            </thead>
+          </table>
         <% end %>
-        <%=link_to 'TOP', root_path, class:"back-btn" %>
-      </div>
-    </main>
-
-
-  </body>
-</html>
+    </div>
+  </main>
+</body>

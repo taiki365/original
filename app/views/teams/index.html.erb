@@ -1,7 +1,10 @@
 <body>
   <main>
+
     <div class="content">
-      <div class="table-name">チーム成績</div>
+      <div class="table-name">
+        チーム成績
+      </div>
       <table>
         <thead class="table-item">
           <tr>
@@ -11,7 +14,7 @@
             <th scope="col">敗北</th>
             <th scope="col">引き分け</th>
             <th scope="col">勝率</th>
-            <th scope="col">勝率差</th>
+            <th scope="col">ゲーム差</th>
             <th scope="col">チーム防御率</th>
             <th scope="col">チーム打率</th>
             <th scope="col">チーム本塁打</th>
@@ -43,10 +46,11 @@
           </tbody>
         <% end %>
       </table>
-         <% if user_signed_in? && current_user.admin? %>
-            <a><%=link_to '新規データ入力', new_team_path, class:"btn btn--yellow" %></a>
-            <a><%=link_to 'TOP', root_path, class:"btn btn--green" %><a>
-          <% end %>
+
+      <% if user_signed_in? && current_user.admin? %>
+        <%=link_to '新規データ入力', new_team_path, class:"btn btn--yellow" %>
+      <% end %>
     </div>
+
   </main>
 </body>

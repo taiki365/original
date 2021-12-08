@@ -1,66 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+<body>
+  <main>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
-
-  </head>
-  <body>
-    
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  
-</header>
-
-
-  
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">打者成績</h1>
+    <div class="content">
+      <div class="table-name">
+        打者成績
       </div>
-  
-      <h2>Section title</h2>
-      <div class="table-responsive"> 
-          <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-          <tbody>
-            <tr>
-              <td><%= @batter.batter_name %></td>
-              <td><%= @batter.bat %></td>
-              <td><%= @batter.rbi %></td>
-              <td><%= @batter.single %></td>
-              <td><%= @batter.double %></td>
-              <td><%= @batter.triple %></td>
-              <td><%= @batter.homerun %></td>
-              <td><%= @batter.walks %></td>
-              <td><%= @batter.dead_ball %></td>
-              <td><%= @batter.sacrifice_fly %></td>
-              <td><%= @batter.strikeout %></td>
-              <td><%= @batter.steal %></td>
-              <td><%= @batter.steal_dead %></td>
-              <td><%= @batter.runs %></td>
-            </tr>
-          </tbody>
-            </tr>
+      <table>
+        <thead class="table-item">
+          <tr>
+            <th scope="col">選手名</th>
+            <th scope="col">打数</th>
+            <th scope="col">打点</th>
+            <th scope="col">四球</th>
+            <th scope="col">死球</th>
+            <th scope="col">犠飛</th>
+            <th scope="col">三振</th>
+            <th scope="col">盗塁</th>
+            <th scope="col">安打数</th>
+            <th scope="col">打率</th>
+            <th scope="col">出塁率</th>
+            <th scope="col">OPS</th>
+            <th scope="col">NOI</th>
+            <th scope="col">GPA</th>
+            <th scope="col">IsoD</th>
+            <th scope="col">IsoP</th>
+            <th scope="col">BABIP</th>
+            <th scope="col">BB/K</th>
+            <th scope="col">PA/K</th>
+            <th scope="col">AB/HR</th>
+            <th scope="col">RC</th>
+            <th scope="col">SecA</th>
+            <th scope="col"></th>
+          </tr>
         </thead>
-        </table>
+
+        <tbody>
+          <tr>
+            <td scope="row"><%= @batter.batter_name %></td>
+            <td><%= @batter.bat %></td>
+            <td><%= @batter.rbi %></td>
+            <td><%= @batter.walks %></td>
+            <td><%= @batter.dead_ball %></td>
+            <td><%= @batter.sacrifice_fly %></td>
+            <td><%= @batter.strikeout %></td>
+            <td><%= @batter.steal %></td>
+            <td><%= @batter.hits %></td>
+            <td><%= @batter.batting_avarage %></td>
+            <td><%= @batter.slugging_percentage %></td>
+            <td><%= @batter.ops %></td>
+            <td><%= @batter.noi %></td>
+            <td><%= @batter.gpa %></td>
+            <td><%= @batter.isod %></td>
+            <td><%= @batter.isop %></td>
+            <td><%= @batter.babip %></td>
+            <td><%= @batter.bbk %></td>
+            <td><%= @batter.pak %></td>
+            <td><%= @batter.abhr %></td>
+            <td><%= @batter.rc %></td>
+            <td><%= @batter.seca %></td>
+          </tr>
+        </tbody>
+      </table>
+
       <% if user_signed_in? && current_user.admin? %>
-        <%=link_to '編集', edit_batter_path, method: :get %>
-        <%=link_to '削除', "/batters/#{@batter.id}", method: :delete %>
-        <%=link_to 'TOP', root_path, class:"back-btn" %>
+        <%=link_to '編集', edit_batter_path, method: :get, class:"btn btn--gray" %>
+        <%=link_to '削除', "/batters/#{@batter.id}", method: :delete, class:"btn btn--red" %>
       <% end %>
-      </div>
-    </main>
-
-
-  </body>
-</html>
+    </div>
+    
+  </main>
+</body>

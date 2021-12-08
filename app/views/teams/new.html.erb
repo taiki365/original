@@ -1,13 +1,17 @@
 <body>
   <main>
     <div class="content">
-      <div class="table-name">チーム成績</div>
-        <div class="instructions">成績を入力してください</div>
+      <div class="table-name">
+        チーム成績
+      </div>
+        <div class="instructions">
+          成績を入力してください
+        </div>
           <%= form_with model:@team, local: true do |f| %>
             <table>
               <thead class="table-item">
                 <tr>
-                  <th class="new-item"><%= f.collection_select(:team_name_id, TeamName.all, :id, :name, {}, {class:"select-box", id:""}) %></th>
+                  <th><%= f.collection_select(:team_name_id, TeamName.all, :id, :name, {}, {class:"select-box", id:""}) %></th>
                   <th><%= f.number_field :game_number, placeholder:"試合数" %></th>
                   <th><%= f.number_field :team_win, placeholder:"勝利"%></th>
                   <th><%= f.number_field :team_lose, placeholder:"敗北" %></th>
@@ -24,7 +28,6 @@
               </thead>
             </table>
           <% end %>
-        <a><%=link_to 'TOP', root_path, class:"btn btn--green" %></a>
     </div>
   </main>
 </body>

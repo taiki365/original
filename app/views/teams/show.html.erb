@@ -1,8 +1,10 @@
-
 <body>
   <main>
+
     <div class="content">
-      <div class="table-name">チーム成績</div>
+      <div class="table-name">
+        チーム成績
+      </div>
       <table>
         <thead class="table-item">
           <tr>
@@ -12,18 +14,17 @@
             <th scope="col">敗北</th>
             <th scope="col">引き分け</th>
             <th scope="col">勝率</th>
-            <th scope="col">勝率差</th>
+            <th scope="col">ゲーム差</th>
             <th scope="col">チーム防御率</th>
             <th scope="col">チーム打率</th>
             <th scope="col">チーム本塁打</th>
             <th scope="col">チーム盗塁</th>
             <th scope="col">チーム得点</th>
             <th scope="col">チーム失点</th>
-            <th scope="col"></th>
           </tr>
         </thead>
         
-        <tbody>    
+        <tbody>
           <tr>
             <td scope="row"><%= @team.team_name.name %></td>
             <td><%= @team.game_number %></td>
@@ -45,8 +46,8 @@
         <% if user_signed_in? && current_user.admin? %>
           <%=link_to '編集', edit_team_path, method: :get, class:"btn btn--gray" %>
           <%=link_to '削除', "/teams/#{@team.id}", method: :delete, class:"btn btn--red" %>
-          <%=link_to 'TOP', root_path, class:"btn btn--green" %>
         <% end %>
     </div>
+
   </main>
 </body>
