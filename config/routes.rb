@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root to: "tops#index"
   resources :batters
   resources :pitchers
-  resources :teams
+  resources :teams do
+    resource :favorites, only: [:create, :destroy]
+  end
 end

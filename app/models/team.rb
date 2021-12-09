@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :team_name
-
+  
   validates :game_number,          presence: true
   validates :team_name_id,         presence: true
   validates :team_win,             presence: true

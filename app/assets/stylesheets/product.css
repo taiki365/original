@@ -6,8 +6,6 @@
   font-size:20px
 }
 
-
-
 .top-header {
   width: 100vw;
   padding: 2vh 1vw;
@@ -272,6 +270,10 @@ a.btn--beige {
 a.btn--beige:hover {
   color: black;
   background: beige;
+}
+
+.option {
+  padding-bottom: 30vh;
 }
 
 /* タブレット対応 */
