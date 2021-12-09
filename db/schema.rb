@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_103656) do
+ActiveRecord::Schema.define(version: 2021_12_09_034019) do
 
   create_table "batters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "batter_name", null: false
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 2021_12_06_103656) do
     t.integer "runs", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "batter_id", null: false
+    t.bigint "pitcher_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["batter_id"], name: "index_favorites_on_batter_id"
+    t.index ["pitcher_id"], name: "index_favorites_on_pitcher_id"
+    t.index ["team_id"], name: "index_favorites_on_team_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "pitchers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,4 +93,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_103656) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "batters"
+  add_foreign_key "favorites", "pitchers"
+  add_foreign_key "favorites", "teams"
+  add_foreign_key "favorites", "users"
 end

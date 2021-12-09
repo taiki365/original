@@ -1,4 +1,6 @@
 class Pitcher < ApplicationRecord
+  belongs_to :favorite, dependent: :destroy 
+
   validates :pitcher_name,               presence: true
   validates :damage_hit,                 presence: true,numericality: { greater_than: 0 }
   validates :defense,                    presence: true

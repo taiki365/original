@@ -1,4 +1,6 @@
 class Batter < ApplicationRecord
+  belongs_to :favorite, dependent: :destroy 
+
   validates :batter_name,   presence: true
   validates :bat,           presence: true, numericality: { greater_than: 0 }
   validates :rbi,           presence: true, numericality: { greater_than: 0 }

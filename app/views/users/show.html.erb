@@ -1,0 +1,32 @@
+<body>
+  <main>
+    <div class="content">
+      <div class="table-name">
+        チーム成績
+      </div>
+      <% if @favorite_list.present? %>
+      <% @favorite_list.each do |t| %>
+                  <td scope="row"><%= @team.team_name.name %></td>
+            <td><%= t.game_number %></td>
+            <td><%= t.team_win %></td>
+            <td><%= t.team_lose %></td>
+            <td><%= @team.draw %></td>
+            <td><%= @team.win_rate %></td>
+            <td><%= @team.game_difference %></td>
+            <td><%= @team.team_defense %></td>
+            <td><%= @team.team_batting_average %></td>
+            <td><%= @team.team_homerun %></td>
+            <td><%= @team.team_steal %></td>
+            <td><%= @team.team_runs %></td>
+            <td><%= @team.tema_conceded %></td>
+          <table>
+            <thead class="table-item">   
+              <tr>
+     
+              </tr> 
+            </thead>
+          </table>
+      <% end %>
+    </div>
+  </main>
+</body>
