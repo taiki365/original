@@ -1,5 +1,5 @@
 class Batter < ApplicationRecord
-  validates :batter_name,   presence: true
+  validates :batter_name,   presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/ }
   validates :bat,           presence: true, numericality: { greater_than: 0 }
   validates :rbi,           presence: true, numericality: { greater_than: 0 }
   validates :single,        presence: true, numericality: { greater_than: 0 }
