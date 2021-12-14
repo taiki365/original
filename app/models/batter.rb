@@ -1,18 +1,18 @@
 class Batter < ApplicationRecord
   validates :batter_name,   presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/ }
-  validates :bat,           presence: true, numericality: { greater_than: 0 }
-  validates :rbi,           presence: true, numericality: { greater_than: 0 }
-  validates :single,        presence: true, numericality: { greater_than: 0 }
-  validates :double,        presence: true, numericality: { greater_than: 0 }
-  validates :triple,        presence: true, numericality: { greater_than: 0 }
-  validates :homerun,       presence: true, numericality: { greater_than: 0 }
-  validates :walks,         presence: true, numericality: { greater_than: 0 }
-  validates :dead_ball,     presence: true, numericality: { greater_than: 0 }
-  validates :sacrifice_fly, presence: true, numericality: { greater_than: 0 }
-  validates :strikeout,     presence: true, numericality: { greater_than: 0 }
-  validates :steal,         presence: true, numericality: { greater_than: 0 }
-  validates :steal_dead,    presence: true, numericality: { greater_than: 0 }
-  validates :runs,          presence: true, numericality: { greater_than: 0 }
+  validates :bat,           presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :rbi,           presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :single,        presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :double,        presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :triple,        presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :homerun,       presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :walks,         presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :dead_ball,     presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :sacrifice_fly, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :strikeout,     presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :steal,         presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :steal_dead,    presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :runs,          presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def base_hit
     hit2 = self.double * 2
