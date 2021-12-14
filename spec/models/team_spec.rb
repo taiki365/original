@@ -5,8 +5,8 @@ RSpec.describe Team, type: :model do
     @team = FactoryBot.build(:team)
   end
   
-  describe 'チームデータ新規登録' do
-    context 'チームデータを新規登録出来ない場合' do
+  describe 'チーム成績新規登録' do
+    context 'チーム成績を新規登録出来ない場合' do
       it '試合数が空では登録出来ない' do
         @team.game_number = ''
         @team.valid?
@@ -163,7 +163,7 @@ RSpec.describe Team, type: :model do
         expect(@team.errors.full_messages).to include "Tema conceded must be an integer"
       end
     end
-    context 'チームデータを新規登録出来る場合' do
+    context 'チーム成績を新規登録出来る場合' do
       it '全ての項目が入力されていれば登録できる' do
         expect(@team).to be_valid
       end
