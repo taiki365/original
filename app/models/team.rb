@@ -2,8 +2,8 @@ class Team < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :team_name
 
-  validates :game_number,          presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :team_name_id,         presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :game_number,          presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :team_name_id,         presence: true, numericality: { greater_than: 1 }
   validates :team_win,             presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :team_lose,            presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :draw,                 presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
