@@ -1,4 +1,5 @@
 class BattersController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_batter, only: [:edit, :update, :show, :destroy]
   before_action :admin_check, only: [:new, :create, :edit, :update, :destroy]
 
@@ -13,7 +14,6 @@ class BattersController < ApplicationController
 
   def create
     @batter = Batter.new(batter_params)
-    
     if @batter.save
       redirect_to action: :index
     else
